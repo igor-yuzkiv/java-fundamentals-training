@@ -16,6 +16,7 @@ Build strong skills implementing a well known Array List data structure 💪
 * **remove element** by index (shift whole array tail to the left) ✅
 * maintain list **size** ✅
 
+
 ### Exercise overview 🇺🇦
 [![Linked List](https://yt-embed.herokuapp.com/embed?v=jFBKToSC3ag)](https://youtu.be/jFBKToSC3ag)
 
