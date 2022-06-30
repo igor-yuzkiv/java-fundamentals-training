@@ -3,7 +3,25 @@ package com.bobocode.cs;
 public class Demo {
     public static void main (String[] args) {
 
-        Integer[] elements = {1,2,3,4,5};
+
+        DoubleLinkedList<Integer> list = new DoubleLinkedList<>();
+
+
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(4);
+
+        System.out.println(list.toString());
+
+        System.out.println("========================================");
+
+//        list.remove(1);
+//
+//        System.out.println(list.toString());
+
+
+        /*Integer[] elements = {1,2,3,4,5};
 
 
         LinkedList<Integer> list = LinkedList.of(elements);
@@ -17,6 +35,6 @@ public class Demo {
 
             System.out.println("current: i("+i+") " + current.element);
             current = current.next;
-        }
+        }*/
     }
 }
