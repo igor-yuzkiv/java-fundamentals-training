@@ -3,6 +3,7 @@ package com.bobocode.cs;
 import lombok.Getter;
 import lombok.Setter;
 
+//TODO: java balanced binary tree
 public class Tree<T extends Comparable<T>> {
     public static class Node<T> {
 
