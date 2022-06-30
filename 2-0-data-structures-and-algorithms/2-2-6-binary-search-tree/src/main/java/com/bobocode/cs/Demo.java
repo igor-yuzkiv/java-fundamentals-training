@@ -58,22 +58,15 @@ public class Demo {
             }
 
             tree.removeByValue(7);
-
-            System.out.println("Size: " + tree.getSize());
-
         }
     }
 
     public static void main(String[] args) {
-
         //TestFirst first = new TestFirst();
         //first.run();
 
-
-        TestSecond second = new TestSecond();
-        second.removeTest();
+        //TestSecond second = new TestSecond();
         //second.run();
-
     }
 
 

@@ -1,11 +1,7 @@
 package com.bobocode.cs;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
-
-import javax.annotation.Nullable;
-import java.util.function.Consumer;
 
 public class Tree<T extends Comparable<T>> {
     public static class Node<T> {
@@ -32,6 +28,7 @@ public class Tree<T extends Comparable<T>> {
         public static <T> Node<T> valueOf(T value) {
             return new Node<>(value);
         }
+
     }
 
     Node<T> root;
@@ -104,12 +101,47 @@ public class Tree<T extends Comparable<T>> {
         }
     }
 
-    public void removeByValue(T value) {
+    public boolean removeByValue(T value) {
         Node<T> forRemove = findNodeByValue(value);
-        Node<T> previous = forRemove.getPreviousParent();
 
-        System.out.println("F: " + forRemove.getValue());
-        System.out.println("P: " + previous.getValue());
+        if (forRemove == null) {
+            return false;
+        }
+
+        if (forRemove == root) {
+            root = null;
+            size = 0;
+            return true;
+        }
+
+        Node<T> previous = forRemove.getPreviousParent();
+        boolean isLeft = (previous.getValue().compareTo(forRemove.getValue()) > 0);
+
+        if (forRemove.getLeftParent() == null && forRemove.getRightParent() == null) {
+            if (isLeft) {
+                previous.setLeftParent(null);
+            } else {
+                previous.setRightParent(null);
+            }
+        } else if (forRemove.getLeftParent() == null) {
+            if (isLeft) {
+                previous.setLeftParent(forRemove.getRightParent());
+            } else {
+                previous.setRightParent(forRemove.getRightParent());
+            }
+        } else if (forRemove.getRightParent() == null) {
+            if (isLeft) {
+                previous.setLeftParent(forRemove.getLeftParent());
+            } else {
+                previous.setRightParent(forRemove.getLeftParent());
+            }
+        } else {
+            previous.setLeftParent(forRemove.getLeftParent());
+            previous.setRightParent(forRemove.getRightParent());
+        }
+        size--;
+
+        return  true;
     }
 
     public boolean contains(T value) {
