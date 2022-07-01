@@ -25,6 +25,7 @@
         <module>6-0-test-driven-development</module>
         <module>java-fundamentals-util</module>
         <module>lesson-demo</module>
+        <module>3-0-java-core/stream_api</module>
     </modules>
 
     <dependencies>
